@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "17789921-4c55-49d2-88be-892c5d57c955",
+		"name": "Github API Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19406355"
+	},
+	"item": [
+		{
+			"name": "Repos content",
+			"item": [
+				{
+					"name": "Get repository content",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE}}/repos/{{owner}}/{{repo}}/contents?ref",
+							"host": [
+								"{{API_BASE}}"
+							],
+							"path": [
+								"repos",
+								"{{owner}}",
+								"{{repo}}",
+								"contents"
+							],
+							"query": [
+								{
+									"key": "ref",
+									"value": null,
+									"description": "The name of the commit/branch/tag. Default: the repository’s default branch."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download a repository archive (zip)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE}}/repos/{{owner}}/{{repo}}/zipball/{{REF}}",
+							"host": [
+								"{{API_BASE}}"
+							],
+							"path": [
+								"repos",
+								"{{owner}}",
+								"{{repo}}",
+								"zipball",
+								"{{REF}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List repositories for the authenticated user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE}}/user/repos?visibility&affiliation",
+							"host": [
+								"{{API_BASE}}"
+							],
+							"path": [
+								"user",
+								"repos"
+							],
+							"query": [
+								{
+									"key": "visibility",
+									"value": null,
+									"description": "Limit results to repositories with the specified visibility.\n\nDefault: all"
+								},
+								{
+									"key": "affiliation",
+									"value": null,
+									"description": "owner,collaborator,organization_member"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List repositories for a user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE}}/users/{{user}}/repos?type&sort&direction&per_page&page",
+							"host": [
+								"{{API_BASE}}"
+							],
+							"path": [
+								"users",
+								"{{user}}",
+								"repos"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": null,
+									"description": "Can be one of: all, owner, member "
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"description": "The property to sort the results by.\n\nDefault: full_name\n\nCan be one of: created, updated, pushed, full_name "
+								},
+								{
+									"key": "direction",
+									"value": null,
+									"description": "Can be one of: asc, desc "
+								},
+								{
+									"key": "per_page",
+									"value": null
+								},
+								{
+									"key": "page",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search repos",
+			"item": [
+				{
+					"name": "Search repositories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE}}/search/repositories?q=pytorch+language:C&sort =&order=desc&per_page =5&page=1",
+							"host": [
+								"{{API_BASE}}"
+							],
+							"path": [
+								"search",
+								"repositories"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "pytorch+language:C",
+									"description": "Keywords and qualifiers"
+								},
+								{
+									"key": "sort ",
+									"value": "",
+									"description": "stars, forks, help-wanted-issues, updated. Default: best match"
+								},
+								{
+									"key": "order",
+									"value": "desc",
+									"description": "Can be one of: desc, asc"
+								},
+								{
+									"key": "per_page ",
+									"value": "5",
+									"description": "pagination (number of results per page)"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "The page number of the results to fetch"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Commits",
+			"item": [
+				{
+					"name": "List commits",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE}}/repos/{{owner}}/{{repo}}/commits?sha&path&author&committer&since&until&per_page&page",
+							"host": [
+								"{{API_BASE}}"
+							],
+							"path": [
+								"repos",
+								"{{owner}}",
+								"{{repo}}",
+								"commits"
+							],
+							"query": [
+								{
+									"key": "sha",
+									"value": null
+								},
+								{
+									"key": "path",
+									"value": null
+								},
+								{
+									"key": "author",
+									"value": null
+								},
+								{
+									"key": "committer",
+									"value": null
+								},
+								{
+									"key": "since",
+									"value": null
+								},
+								{
+									"key": "until",
+									"value": null
+								},
+								{
+									"key": "per_page",
+									"value": null
+								},
+								{
+									"key": "page",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a commit",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE}}/repos/{{owner}}/{{repo}}/commits/{{REF}}?page&per_page",
+							"host": [
+								"{{API_BASE}}"
+							],
+							"path": [
+								"repos",
+								"{{owner}}",
+								"{{repo}}",
+								"commits",
+								"{{REF}}"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": null
+								},
+								{
+									"key": "per_page",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{GITHUB_TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
