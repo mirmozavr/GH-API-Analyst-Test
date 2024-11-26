@@ -125,9 +125,11 @@ The following REST API versions are currently supported: `2022-11-28`
 
 #### b. Get a Commit
 - **Endpoint**: `GET /repos/{{owner}}/{{repo}}/commits/{{REF}}`
-- **Description**: Returns the contents of a single commit reference. You must have read access for the repository to use this endpoint. The response will include a verification object that describes the result of verifying the commit's signature.
+- **Description**: Returns the contents of a single commit reference. You must have read access for the repository to use this endpoint. The response will include a verification object that describes the result of verifying the commit's signature.  
+   `REF` stands for the commit reference. Can be a commit SHA, branch name (heads/BRANCH_NAME), or tag name (tags/TAG_NAME).
 - **Parameters**:
-  - `page`, `per_page`: Pagination options.
+  - `per_page`: Results per page.
+  - `page`: Page number.
 - [**Official Documentation**](https://docs.github.com/en/rest/commits/commits?apiVersion=2022-11-28#list-commits)
 
 ---
@@ -138,6 +140,11 @@ The following REST API versions are currently supported: `2022-11-28`
 1. [Set up Postman](#prerequisites)
 2. Set up the environment variables if needed.
 3. Run the requests to see results.
+
+### 2. Testing with Google Colab
+
+- Use Jupyter Notebook `./Content/GH-API-Analyst-Test.ipynb`
+- Use shared Colab notebook [LINK](https://colab.research.google.com/drive/18k2SNABW-jpElzbH85UNpsLshj7Zi0Ea?usp=sharing)
 
 ---
 
